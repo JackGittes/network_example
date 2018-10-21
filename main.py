@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from data_generator import data_loader
 import nn
+import params
 
 sigmoid = nn.sigmoid
 dsigmoid = nn.dsigmoid
@@ -64,8 +65,12 @@ def train_one_pass(x,ylb,w):
     w =w - lr*dw/m
     return w
 
+train_flag = 1
 if __name__=='__main__':
-    w = initweight()
+    if train_flag == 1:
+        w = initweight()
+    else:
+        w = params.weight_loader()
     x_in,ylb = data_loader()
     losslist = []
     for i in range(epoch):
@@ -75,9 +80,7 @@ if __name__=='__main__':
         losslist.append(loss)
         if i%40==0:
             print('epoch is:',i,'present loss is:', np.sum(loss))
-        # if i%800==0 and (i>0):
-        #      lr = lr/2.
-        #      print('lr is changing:',lr)
+
     res1 = MLPnet(np.asarray([5, 5]),w)
     res2 = MLPnet(np.asarray([5, 0]),w)
     res3 = MLPnet(np.asarray([0, 0]),w)
@@ -95,6 +98,8 @@ if __name__=='__main__':
     stat[comp==True]=1
     acc = np.sum(stat)/len(x_in)
     print('the total accuracy is:',str(100*acc)+'%')
+
+    params.weight_writer(w)
 
     plt.subplot(2,1,1)
     plt.scatter(x_in[:,0],x_in[:,1])
