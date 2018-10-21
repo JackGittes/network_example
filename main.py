@@ -1,6 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from data_generator import data_loader
+import nn
+
+sigmoid = nn.sigmoid
+loss = nn.suqareloss
+dsigmoid = nn.dsigmoid
+lossfunc = nn.suqareloss
+dlossfunc = nn.dsquareloss
 
 lr=0.005
 epoch = 2000
@@ -15,24 +22,6 @@ def MLPnet(x,w1,b1,w2,b2,w3,b3,w4,b4):
 def relu(x):
     x[x < 0] = 0
     return x
-
-def drelu(x):
-    x[x>0]=1
-    x[x<=0]=0
-    return x
-
-def sigmoid(x):
-    return 1/(1+np.exp(-x))
-
-def dsigmoid(x):
-    return sigmoid(x)*(1-sigmoid(x))
-
-def lossfunc(y,y_):
-    m = len(y)
-    return np.sum(1/2.*np.square(y-y_))/m
-
-def dlossfunc(y,y_):
-    return (y-y_)
 
 def initweight(wsig=3,bsig=2):
     w1 = wsig*np.random.randn(2,30)
