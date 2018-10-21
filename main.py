@@ -11,9 +11,6 @@ dlossfunc = nn.dcross_entropy
 softmax = nn.softmax
 dsoftmax = nn.dsoftmax
 
-lr=0.001
-epoch = 2000
-
 def MLPnet(x,w):
     [w1,b1,w2,b2,w3,b3,w4,b4]=[w[0], w[1], w[2], w[3], w[4], w[5], w[6], w[7]]
     y1 = nn.relu(np.dot(x, w1) + b1)
@@ -57,7 +54,7 @@ def onebackward(x,ylb,w):
     db1 = dlay1
     return np.asarray([dw1,db1,dw2,db2,dw3,db3,dw4,db4])
 
-def train_one_pass(x,ylb,w):
+def train_one_pass(x,ylb,w,lr=0.001):
     m = len(x)
     dw = np.zeros(w.shape)
     for i in range(m):
@@ -65,30 +62,20 @@ def train_one_pass(x,ylb,w):
     w =w - lr*dw/m
     return w
 
-train_flag = 1
-if __name__=='__main__':
-    if train_flag == 1:
-        w = initweight()
-    else:
-        w = params.weight_loader()
+def train(lr=0.001,epochs=2000):
+    w = initweight()
     x_in,ylb = data_loader()
     losslist = []
-    for i in range(epoch):
-        w = train_one_pass(x_in,ylb,w)
-        [y1, y2, y3, out] = MLPnet(x_in,w)
+    for i in range(epochs):
+        w = train_one_pass(x_in,ylb,w,lr)
+        [_, _, _, out] = MLPnet(x_in,w)
         loss = lossfunc(out, ylb)
         losslist.append(loss)
         if i%40==0:
             print('epoch is:',i,'present loss is:', np.sum(loss))
-
-    res1 = MLPnet(np.asarray([5, 5]),w)
-    res2 = MLPnet(np.asarray([5, 0]),w)
-    res3 = MLPnet(np.asarray([0, 0]),w)
-
-    print('true label is:',1,'pred is:',np.argmax(res1[3])+1)
-    print('true label is:',2,'pred is:',np.argmax(res2[3])+1)
-    print('true label is:',3,'pred is:',np.argmax(res3[3])+1)
-
+    """
+    calculate accuracy on the entire data
+    """
     res = MLPnet(x_in, w)
     trueres = np.argmax(ylb,axis=1)
     res = np.argmax(np.asarray(res[3]),axis=1)
@@ -106,3 +93,10 @@ if __name__=='__main__':
     plt.subplot(2,1,2)
     plt.plot(losslist)
     plt.show()
+
+def test(x):
+    w = params.weight_loader()
+    res = MLPnet(x,w)
+    print('result is:',np.argmax(res[3]))
+
+def plot_res(x,res):

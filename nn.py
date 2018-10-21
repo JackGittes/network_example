@@ -39,7 +39,6 @@ def dsquareloss(y,y_):
     return (y-y_)
 
 ## going to be completed
-
 def softmax(x):
     sp = x.shape
     if len(sp)==1:
