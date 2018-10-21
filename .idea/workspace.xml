@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="124a3c9c-9827-4984-8cf0-7218e6557beb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/params.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nn.py" beforeDir="false" afterPath="$PROJECT_DIR$/nn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/params.py" beforeDir="false" afterPath="$PROJECT_DIR$/params.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,34 +22,34 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="290" />
-          <entry key="py" value="2096" />
+          <entry key="Python Console" value="824" />
+          <entry key="py" value="2794" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2386" />
+          <entry key="Python" value="3618" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1332">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="-864">
+              <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -58,17 +57,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/params.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="108">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
-                <marker date="1540108788107" expanded="true" signature="52:54" ph="..." />
-                <marker date="1540108788107" expanded="true" signature="52:55" ph="..." />
-                <marker date="1540108788107" expanded="true" signature="52:56" ph="..." />
-                <marker date="1540108788107" expanded="true" signature="77:78" ph="..." />
+                <marker date="1540128462305" expanded="true" signature="53:62" ph="..." />
+                <marker date="1540128462305" expanded="true" signature="58:60" ph="..." />
+                <marker date="1540128462305" expanded="true" signature="58:61" ph="..." />
+                <marker date="1540128462305" expanded="true" signature="83:84" ph="..." />
               </folding>
             </state>
           </provider>
@@ -77,15 +76,42 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+            <state relative-caret-position="331">
+              <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
               <folding>
-                <marker date="1540113482870" expanded="true" signature="981:994" ph="..." />
-                <marker date="1540113482870" expanded="true" signature="1010:1024" ph="..." />
-                <marker date="1540113482870" expanded="true" signature="1045:1059" ph="..." />
-                <marker date="1540113482870" expanded="true" signature="1081:1083" ph="..." />
-                <marker date="1540113482870" expanded="true" signature="1081:1087" ph="..." />
+                <marker date="1540125188885" expanded="true" signature="1069:1141" ph="..." />
+                <marker date="1540125188885" expanded="true" signature="1205:1290" ph="..." />
+                <marker date="1540125188885" expanded="true" signature="1329:1387" ph="..." />
+                <marker date="1540125188885" expanded="true" signature="1412:1413" ph="..." />
+                <marker date="1540125188885" expanded="true" signature="1412:1417" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Program Files/Python36/Lib/site-packages/numpy/lib/twodim_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="447">
+              <caret line="260" selection-start-line="260" selection-end-line="260" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Program Files/Python36/Lib/site-packages/numpy/core/numeric.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="500" selection-start-line="500" selection-end-line="500" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Program Files/Python36/Lib/site-packages/numpy/core/fromnumeric.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="82" selection-start-line="82" selection-end-line="82" />
             </state>
           </provider>
         </entry>
@@ -120,15 +146,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/data_generator.py" />
-        <option value="$PROJECT_DIR$/params.py" />
         <option value="$PROJECT_DIR$/nn.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/params.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="x" value="49" />
+    <option name="y" value="28" />
     <option name="width" value="1855" />
     <option name="height" value="1048" />
   </component>
@@ -242,13 +268,13 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23919916" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" weight="0.32899022" />
-      <window_info anchor="bottom" id="Python Console" weight="0.43756786" />
+      <window_info anchor="bottom" id="Python Console" weight="0.3170467" />
       <window_info anchor="bottom" id="Terminal" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3756786" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.31053203" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.46036917" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39305103" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -265,27 +291,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="3" />
+          <line>37</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>w[6]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.dot(dloss,dsoft)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <marker date="1540108788107" expanded="true" signature="52:54" ph="..." />
-            <marker date="1540108788107" expanded="true" signature="52:55" ph="..." />
-            <marker date="1540108788107" expanded="true" signature="52:56" ph="..." />
-            <marker date="1540108788107" expanded="true" signature="77:78" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_generator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -298,26 +324,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Program Files/Python36/Lib/site-packages/numpy/lib/twodim_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="260" selection-start-line="260" selection-end-line="260" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/Python36/Lib/site-packages/numpy/core/numeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="500" selection-start-line="500" selection-end-line="500" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Program Files/Python36/Lib/site-packages/numpy/core/fromnumeric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="30" column="16" lean-forward="true" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+        <state relative-caret-position="331">
+          <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
           <folding>
-            <marker date="1540113482870" expanded="true" signature="981:994" ph="..." />
-            <marker date="1540113482870" expanded="true" signature="1010:1024" ph="..." />
-            <marker date="1540113482870" expanded="true" signature="1045:1059" ph="..." />
-            <marker date="1540113482870" expanded="true" signature="1081:1083" ph="..." />
-            <marker date="1540113482870" expanded="true" signature="1081:1087" ph="..." />
+            <marker date="1540125188885" expanded="true" signature="1069:1141" ph="..." />
+            <marker date="1540125188885" expanded="true" signature="1205:1290" ph="..." />
+            <marker date="1540125188885" expanded="true" signature="1329:1387" ph="..." />
+            <marker date="1540125188885" expanded="true" signature="1412:1413" ph="..." />
+            <marker date="1540125188885" expanded="true" signature="1412:1417" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1332">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="-864">
+          <caret line="28" column="36" lean-forward="true" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1540128462305" expanded="true" signature="53:62" ph="..." />
+            <marker date="1540128462305" expanded="true" signature="58:60" ph="..." />
+            <marker date="1540128462305" expanded="true" signature="58:61" ph="..." />
+            <marker date="1540128462305" expanded="true" signature="83:84" ph="..." />
           </folding>
         </state>
       </provider>

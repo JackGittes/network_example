@@ -41,17 +41,20 @@ def dsquareloss(y,y_):
 ## going to be completed
 
 def softmax(x):
-
-    return
+    sp = x.shape
+    if len(sp)==1:
+        return np.exp(x)/np.sum(np.exp(x))
+    else:
+        return np.exp(x)/np.sum(np.exp(x),axis=1).reshape((len(x),1))
 
 def dsoftmax(x):
+ #   m = len(x)
+    prob = softmax(x.flatten())
+    return np.diag(prob.flatten())-np.dot(np.asarray([prob]).T,np.asarray([prob]))
 
-    return
+def cross_entropy(y,y_):
+    m = len(y)
+    return -np.sum(y_*np.log(y)+(1-y_)*np.log((1-y)))/m
 
-def cross_entropy(x):
-
-    return
-
-def dcross_entropy(x):
-
-    return
+def dcross_entropy(y,y_):
+    return -(y_*(1/y)-(1-y_)*(1/(1-y)))

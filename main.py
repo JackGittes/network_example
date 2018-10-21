@@ -5,10 +5,12 @@ import nn
 
 sigmoid = nn.sigmoid
 dsigmoid = nn.dsigmoid
-lossfunc = nn.squareloss
-dlossfunc = nn.dsquareloss
+lossfunc = nn.cross_entropy
+dlossfunc = nn.dcross_entropy
+softmax = nn.softmax
+dsoftmax = nn.dsoftmax
 
-lr=0.01
+lr=0.001
 epoch = 2000
 
 def MLPnet(x,w):
@@ -16,36 +18,40 @@ def MLPnet(x,w):
     y1 = nn.relu(np.dot(x, w1) + b1)
     y2 = nn.relu(np.dot(y1, w2) + b2)
     y3 = nn.relu(np.dot(y2, w3) + b3)
-    y4 = sigmoid(np.dot(y3, w4) + b4)
+    y4 = softmax(np.dot(y3, w4) + b4)
     return [y1,y2,y3,y4]
 
-def initweight(wsig=0.1,bsig=1):
-    w1 = wsig*np.random.randn(2,10)
-    b1 = bsig*np.ones([1,10])
-    w2 = wsig*np.random.randn(10,10)
-    b2 = bsig*np.ones([1,10])
-    w3 = wsig*np.random.randn(10,6)
-    b3 = bsig*np.ones([1,6])
-    w4 = wsig*np.random.randn(6,4)
+def initweight(wsig=0.5,bsig=0.1):
+    w1 = wsig*np.random.randn(2,20)
+    b1 = bsig*np.ones([1,20])
+    w2 = wsig*np.random.randn(20,20)
+    b2 = bsig*np.ones([1,20])
+    w3 = wsig*np.random.randn(20,10)
+    b3 = bsig*np.ones([1,10])
+    w4 = wsig*np.random.randn(10,4)
     b4 = bsig*np.ones([1,4])
     return np.asarray([w1,b1,w2,b2,w3,b3,w4,b4])
 
 def onebackward(x,ylb,w):
     [y1, y2, y3, out] = MLPnet(x, w)
     dloss = dlossfunc(out, ylb)
-    dlay4 = dsigmoid(np.dot(y3, w[6])+w[7])
-    dw4 = np.dot(y3.T, dloss * dlay4)
+    dsoft = dsoftmax(np.dot(y3, w[6]) + w[7])
+    dlay4 = np.dot(dloss,dsoft)
+    dw4 = np.dot(y3.T, dlay4)
     db4 = dlay4
 
-    dlay3 = nn.drelu(np.dot(y2, w[4])+w[5])
+    dlay4_3 = np.dot(dlay4,w[6].T)
+    dlay3 = dlay4_3*nn.drelu(np.dot(y2, w[4])+w[5])
     dw3 = np.dot(y2.T, dlay3)
     db3 = dlay3
 
-    dlay2 = nn.drelu(np.dot(y1, w[2])+w[3])
+    dlay3_2 = np.dot(dlay3,w[4].T)
+    dlay2 = dlay3_2*nn.drelu(np.dot(y1, w[2])+w[3])
     dw2 = np.dot(y1.T, dlay2)
     db2 = dlay2
 
-    dlay1 = nn.drelu(np.dot(x, w[0])+w[1])
+    dlay2_1 = np.dot(dlay2,w[2].T)
+    dlay1 = dlay2_1*nn.drelu(np.dot(x, w[0])+w[1])
     dw1 = np.dot(np.asarray([x]).T, dlay1)
     db1 = dlay1
     return np.asarray([dw1,db1,dw2,db2,dw3,db3,dw4,db4])
