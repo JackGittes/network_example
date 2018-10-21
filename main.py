@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from data_generator import data_loader
 
 lr=0.005
 epoch = 2000
@@ -73,21 +74,9 @@ def train_one_pass(x,ylb,w1, b1, w2, b2, w3, b3, w4, b4):
     w =w - lr*dw/m
     return w
 
-def data_generator(data_len=600,catogories=4,sig=0.2):
-    data_center = np.asarray([[15,15],[15,0],[0,0],[0,15]])
-    x = sig*np.random.randn(data_len,2)
-    num = data_len//catogories
-    [ini,stp]=[0,num]
-    ylb = np.zeros((data_len,catogories))
-    for i in range(catogories):
-        x[ini:stp,:]=x[ini:stp,:]+data_center[i]
-        ylb[ini:stp,i] = 1
-        [ini,stp] = [ini+num,stp+num]
-    return x,ylb
-
 if __name__=='__main__':
     [w1, b1, w2, b2, w3, b3, w4, b4] = initweight()
-    x_in,ylb = data_generator()
+    x_in,ylb = data_loader()
     w = np.asarray([w1, b1, w2, b2, w3, b3, w4, b4])
     losslist = []
     for i in range(epoch):
