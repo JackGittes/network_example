@@ -8,7 +8,7 @@
 Description for this module :
 define activation functions and their gradients
 define loss function and their gradients
-present version includes activations and lossfunc as below:
+present version includes activations and lossfuncs as below:
     activations : sigmoid softmax relu
     lossfunc : square loss(hinge loss)
                 cross entropy
@@ -31,7 +31,7 @@ def sigmoid(x):
 def dsigmoid(x):
     return sigmoid(x)*(1-sigmoid(x))
 
-def suqareloss(y,y_):
+def squareloss(y,y_):
     m = len(y)
     return np.sum(1/2.*np.square(y-y_))/m
 
