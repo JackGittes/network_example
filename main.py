@@ -13,9 +13,9 @@ lr=0.005
 epoch = 2000
 
 def MLPnet(x,w1,b1,w2,b2,w3,b3,w4,b4):
-    y1 = sigmoid(np.dot(x, w1) + b1)
-    y2 = sigmoid(np.dot(y1, w2) + b2)
-    y3 = sigmoid(np.dot(y2, w3) + b3)
+    y1 = nn.relu(np.dot(x, w1) + b1)
+    y2 = nn.relu(np.dot(y1, w2) + b2)
+    y3 = nn.relu(np.dot(y2, w3) + b3)
     y4 = sigmoid(np.dot(y3, w4) + b4)
     return [y1,y2,y3,y4]
 
@@ -41,15 +41,15 @@ def onebackward(x,ylb,w1,b1,w2,b2,w3,b3,w4,b4):
     dw4 = np.dot(y3.T, dloss * dlay4)
     db4 = dlay4
 
-    dlay3 = dsigmoid(np.dot(y2, w3))
+    dlay3 = nn.drelu(np.dot(y2, w3))
     dw3 = np.dot(y2.T, dlay3)
     db3 = dlay3
 
-    dlay2 = dsigmoid(np.dot(y1, w2))
+    dlay2 = nn.drelu(np.dot(y1, w2))
     dw2 = np.dot(y1.T, dlay2)
     db2 = dlay2
 
-    dlay1 = np.asarray([dsigmoid(np.dot(x, w1))])
+    dlay1 = np.asarray([nn.drelu(np.dot(x, w1))])
     dw1 = np.dot(np.asarray([x]).T, dlay1)
     db1 = dlay1
     return np.asarray([dw1,db1,dw2,db2,dw3,db3,dw4,db4])

@@ -1,3 +1,19 @@
+########################################################################
+#   Author : Zhao Mingxin
+#   Start Date : 2018/10/21
+#   Last Change : See Github Log
+#   Homepage : jackgittes.github.io
+########################################################################
+'''
+Description for this module :
+define activation functions and their gradients
+define loss function and their gradients
+present version includes activations and lossfunc as below:
+    activations : sigmoid softmax relu
+    lossfunc : square loss(hinge loss)
+                cross entropy
+the function list is increasing.
+'''
 import numpy as np
 
 def relu(x):
