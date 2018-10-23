@@ -30,7 +30,8 @@ def initweight(wsig=0.5,bsig=0.1):
     b4 = bsig*np.ones([1,4])
     return np.asarray([w1,b1,w2,b2,w3,b3,w4,b4])
 
-def onebackward(x,ylb,w):
+
+def onebackward(x, ylb, w):
     [y1, y2, y3, out] = MLPnet(x, w)
     dloss = dlossfunc(out, ylb)
     dsoft = dsoftmax(np.dot(y3, w[6]) + w[7])
@@ -62,7 +63,7 @@ def train_one_pass(x,ylb,w,lr=0.001):
     w =w - lr*dw/m
     return w
 
-def train(lr=0.001,epochs=2000):
+def train(lr=0.001,epochs=1000):
     w = initweight()
     x_in,ylb = data_loader()
     losslist = []
@@ -88,6 +89,7 @@ def train(lr=0.001,epochs=2000):
 
     params.weight_writer(w)
 
+    np.savetxt('loss.csv',np.asarray(losslist))
     plt.subplot(2,1,1)
     plt.scatter(x_in[:,0],x_in[:,1])
     plt.subplot(2,1,2)
@@ -100,3 +102,11 @@ def test(x):
     print('result is:',np.argmax(res[3]))
 
 def plot_res(x,res):
+    return
+
+train_flag = 1
+if __name__ == "__main__":
+    if train_flag==1:
+        train()
+    else:
+        test([15,0])

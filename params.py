@@ -11,11 +11,11 @@ def weight_loader(path='params/'):
         weight.append(tmp)
     return np.asarray(weight)
 
-def weight_writer(w):
+def weight_writer(w,path='params/',weight_names='weight'):
     key = 1
     params = {}
     for item in w:
         params.update({'w'+str(key):{'shape':item.shape,'data':list(item.flatten())}})
         key = key + 1
-    with open('params/weight', 'w') as fp:
+    with open(path+weight_names, 'w') as fp:
         json.dump(params,fp)
