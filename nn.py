@@ -53,7 +53,7 @@ def dsoftmax(x):
 
 def cross_entropy(y,y_):
     m = len(y)
-    return -np.sum(y_*np.log(y)+(1-y_)*np.log((1-y)))/m
+    return -np.sum(y_*np.log(y))/m
 
 def dcross_entropy(y,y_):
-    return -(y_*(1/y)-(1-y_)*(1/(1-y)))
+    return -y_*(1/y)

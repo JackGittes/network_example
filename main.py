@@ -1,13 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from data_generator import data_loader
+from data_generator import load_mnist
 import nn
 import params
+import test
 
 sigmoid = nn.sigmoid
 dsigmoid = nn.dsigmoid
-lossfunc = nn.cross_entropy
-dlossfunc = nn.dcross_entropy
+lossfunc = nn.squareloss
+dlossfunc = nn.dsquareloss
 softmax = nn.softmax
 dsoftmax = nn.dsoftmax
 
@@ -19,15 +21,15 @@ def MLPnet(x,w):
     y4 = softmax(np.dot(y3, w4) + b4)
     return [y1,y2,y3,y4]
 
-def initweight(wsig=0.5,bsig=0.1):
-    w1 = wsig*np.random.randn(2,20)
-    b1 = bsig*np.ones([1,20])
-    w2 = wsig*np.random.randn(20,20)
-    b2 = bsig*np.ones([1,20])
-    w3 = wsig*np.random.randn(20,10)
+def initweight(wsig=0.01,bsig=0.1):
+    w1 = wsig*np.random.randn(784,100)
+    b1 = bsig*np.ones([1,100])
+    w2 = wsig*np.random.randn(100,40)
+    b2 = bsig*np.ones([1,40])
+    w3 = wsig*np.random.randn(40,10)
     b3 = bsig*np.ones([1,10])
-    w4 = wsig*np.random.randn(10,4)
-    b4 = bsig*np.ones([1,4])
+    w4 = wsig*np.random.randn(10,10)
+    b4 = bsig*np.ones([1,10])
     return np.asarray([w1,b1,w2,b2,w3,b3,w4,b4])
 
 
@@ -63,7 +65,7 @@ def train_one_pass(x,ylb,w,lr=0.001):
     w =w - lr*dw/m
     return w
 
-def train(lr=0.001,epochs=1000):
+def train(lr=0.02,epochs=2000):
     w = initweight()
     x_in,ylb = data_loader()
     losslist = []
@@ -96,17 +98,36 @@ def train(lr=0.001,epochs=1000):
     plt.plot(losslist)
     plt.show()
 
-def test(x):
-    w = params.weight_loader()
-    res = MLPnet(x,w)
-    print('result is:',np.argmax(res[3]))
+def prep_lab(lab):
+    m = len(lab)
+    tmp = np.zeros((m,10))
+    for i in range(m):
+        tmp[i,lab[i]]=1
+    return tmp
 
-def plot_res(x,res):
-    return
+def train_mnist(epoch=500,batch=256,lr=0.01):
+    img,lab = load_mnist()
+    w = initweight()
+    losslist = []
+    for k in range(epoch):
+        for i in range(len(img)//batch):
+            train_batch = img[i*batch:(i+1)*batch,:]
+            train_lab = prep_lab(lab[i*batch:(i+1)*batch])
+            w = train_one_pass(train_batch, train_lab, w, lr)
+            [_,_,_,out] = MLPnet(train_batch,w)
+            loss = lossfunc(out, train_lab)
+            losslist.append(loss)
+        print('current loss is:',loss)
+        if k%20==0 and k>0:
+            acc = test.test_on(img,lab,w)
+            print('the total accuracy is:', str(100 * acc) + '%')
+            params.weight_writer(w,weight_names='weight_'+str(k))
+            np.savetxt('loss_'+str(k)+'.csv',np.asarray(losslist))
 
-train_flag = 1
+train_flag = 0
+train_m = 1
 if __name__ == "__main__":
-    if train_flag==1:
+    if train_flag==1 and train_m==0:
         train()
-    else:
-        test([15,0])
+    elif train_flag==0 and train_m==1:
+        train_mnist()

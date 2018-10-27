@@ -1,9 +1,9 @@
 import numpy as np
 import json
 
-def weight_loader(path='params/'):
+def weight_loader(path='params/',weight_names='weight'):
     weight = []
-    with open('params/weight','r') as fp:
+    with open(path+weight_names,'r') as fp:
         params = json.load(fp)
     for key,value in params.items():
         sp,data = value['shape'],value['data']
